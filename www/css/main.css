@@ -1,0 +1,17 @@
+body {
+    margin: 0px;
+    font-family: Open Sans;
+}
+.main-container {
+    color: gray;
+    width: 1140px;
+    margin: 0px auto;
+    padding: 0px 15px;
+}
+.my_content {
+    display: none;
+}
+input, button, textarea {
+    outline: none;
+    font-family: Arial;
+}

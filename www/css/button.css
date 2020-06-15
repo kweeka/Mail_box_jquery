@@ -1,0 +1,33 @@
+.my_header_button {
+    padding: 10px 20px 10px 20px;
+    font-weight: bold;
+    color: #ffffff;
+    border-radius: 3px;
+    transition: background-color 0.5s;
+    cursor: pointer;
+    border: none;
+}
+
+.my_orange {
+    background-color: #FF6C3A;
+}
+
+.my_orange:hover{
+    background-color: #f16535;
+}
+
+.common_button {
+    margin: 0px 0px 16px 0px;
+    font-weight: bold;
+    color: #ffffff;
+    height: 49px;
+    border-radius: 3px;
+    transition: background-color 0.5s;
+    cursor: pointer;
+    border: none;
+    padding: 0px 30px;
+}
+
+.full_width {
+    width: 100% !important;
+}

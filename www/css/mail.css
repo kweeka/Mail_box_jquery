@@ -1,0 +1,164 @@
+.flex-container-menu {
+    display: flex;
+    align-items: center;
+}
+
+.button_mail {
+    padding: 3px 10px;
+    margin: 3px 5px;
+    text-decoration: none;
+    color: #4f4d4d;
+    border: 1px solid #b8b9bc;
+}
+table {
+    width: 100%;
+    margin: 20px 10px 20px 10px;
+    color: #313030;
+}
+.text_email{
+    color: #aca8a8;
+    font-weight: normal;
+    padding-left: 10px;
+}
+td.action_email {
+    width: 9%
+}
+td.foto_contact {
+    width: 13%
+}
+td.name_contact {
+    width: 22%;
+    cursor: pointer;
+}
+td.give_email {
+    width: 40%;
+    cursor: pointer;
+}
+td.time_email {
+    width: 12%;
+    white-space: nowrap;
+}
+.contact_email_circle{
+    color: #FFFFFF;
+    background-color: #fc5427;
+    width: 30px;
+    line-height: 30px;
+    height: 30px;
+    display: inline-block;
+    text-align: center;
+    border-radius: 50%;
+}
+.action_email_checkbox {
+    cursor: pointer;
+}
+
+div.give_email {
+    white-space: nowrap;
+    overflow: hidden;
+    width: 663px;
+    text-overflow: ellipsis;
+}
+
+.topic_email {
+    font-size: 20px;
+}
+
+.flag_checkbox {
+    width: 15px;
+    height: 15px;
+    border: 1px solid #d5d2d2;
+    box-shadow: inset #4f4d4d;
+    cursor: pointer;
+    display: block;
+    border-radius: 3px;
+    margin: auto;
+    position: relative;
+}
+
+.highlight_all_mail_flag_checkbox {
+    width: 15px;
+    height: 15px;
+    border: 1px solid #d5d2d2;
+    box-shadow: inset #4f4d4d;
+    cursor: pointer;
+    display: block;
+    border-radius: 3px;
+    margin: auto;
+    position: relative;
+}
+
+.action_email_checkbox {
+    position: relative;
+    display: none;
+}
+
+.action_email_checkbox:checked + span .flag_checkbox_icon {
+    display: block;
+}
+
+.flag_checkbox_icon {
+    width: 7px;
+    height: 32px;
+    display: none;
+    border-bottom: 3px solid #6a6666;
+    border-right: 2px solid #6a6666;
+    transform: skewX(27deg) rotate(47deg) scale(0.85);
+    position: absolute;
+    top: -19px;
+    left: 6px;
+    margin: auto;
+}
+
+.highlight_all_mail_flag_checkbox_icon {
+    width: 7px;
+    height: 32px;
+    display: none;
+    border-bottom: 3px solid #6a6666;
+    border-right: 2px solid #6a6666;
+    transform: skewX(27deg) rotate(47deg) scale(0.85);
+    position: absolute;
+    top: -19px;
+    left: 6px;
+    margin: auto;
+}
+
+.highlight_all_mail:checked + span .highlight_all_mail_flag_checkbox_icon {
+    display: block;
+}
+
+li.under::before {
+    content: "✿";
+    padding-right: 7px;
+    color: #842723;
+}
+
+#ask_mail {
+    margin: 10px;
+}
+
+.menu_mail {
+    font-size: 18px;
+    color: #fc5427;
+    margin: 20px 0px 0px 0px;
+    list-style: none;
+    padding: 0px;
+}
+
+.menu_mail li {
+    padding: 5px 20px;
+    border-radius: 4px;
+    line-height: 27px;
+    cursor: pointer;
+}
+
+.menu_mail li:hover {
+    background-color: #fcfcfc;
+}
+
+.menu_mail:nth-child(1) {
+    align-self: flex-start;
+}
+
+.active {
+    background-color: #fcfcfc;
+}
