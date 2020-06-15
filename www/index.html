@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8">
+    <title>Mail</title>
+    <link type="text/css" rel="stylesheet" href="css/header.css">
+    <link type="text/css" rel="stylesheet" href="css/main.css">
+    <link type="text/css" rel="stylesheet" href="css/registration.css">
+    <link type="text/css" rel="stylesheet" href="css/authorization.css">
+    <link type="text/css" rel="stylesheet" href="css/mail.css">
+    <link type="text/css" rel="stylesheet" href="css/new_mail.css">
+    <link type="text/css" rel="stylesheet" href="css/error.css">
+    <link type="text/css" rel="stylesheet" href="css/button.css">
+    <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script defer src="js/moment.js"></script>
+    <script defer src="js/main.js"></script>
+</head>
+<body>
+<div class="error_container">
+</div>
+<header class="flex-container">
+    <div class="main-container flex-container center">
+        <a id="logo" href="#" title="main" onclick="return false;"><img src="resourses/logo.svg"/></a>
+        <a id="tel_icon" href="#" title="tel_icon" onclick="return false;">
+        <img id="header_icon_phone" src="resourses/phone.svg" />
+        </a>
+        <a id="header_tell" class="my_link" href="#"
+           title="tell">+6282122453599</a>
+        <div id="unauthorized_header" style="display: block">
+            <input id="header_sign_up" class="my_header_button my_orange" type="button" value="SIGN UP"/>
+            <a id="header_sign_in" class="my_link" href="#"
+               title="sign_in" onclick="return false;">Sign in</a>
+        </div>
+        <div id="authorized_header" style="display: none">
+            <span id="user_email_header"></span>
+            <span id="user_email_header_circle"></span>
+            <div id="action">
+                <input id="logout" type="button" value="LOGOUT" class="my_header_button my_gray">
+                <input id="client_mail" type="button" value="MAIL" class="my_header_button my_gray">
+            </div>
+        </div>
+    </div>
+</header>
+<div class="flex-container center">
+    <div class="main-container">
+        <div>
+            <div id="registration_content" class="my_content form_registration">
+                <h1 class="registration_header">REGISTRATION FORM</h1>
+                <p class="registration_header">Use Google sign in to automate all steps</p>
+                <p class="registration_header">Already have account? <span id="registration_sign_in">Sign in</span></p>
+                <div>
+                    <!--<p class="registration_text">First Name</p>-->
+                    <input type="text" name="name" id="name" class="validation_input form_field_name input_underline"
+                           onkeyup="clear_input_error(this)" placeholder="First Name"/>
+                    <p class="form_field_error"></p>
+                </div>
+                <div>
+                    <!--<p class="registration_text">E-mail<span class="required_text">*</span></p>-->
+                    <input type="text" name="e_mail" id="e_mail"
+                           class="form_field_email validation_input input_underline" onkeyup="clear_input_error(this)" placeholder="E-mail"/>
+                    <p class="form_field_error"></p>
+                </div>
+                <div>
+                    <!--<p class="registration_text">Your Passwords<span class="required_text">*</span></p>-->
+                    <input type="password" name="passwords" id="passwords" class="validation_input form_field_password input_underline"
+                           onkeyup="clear_input_error(this)" placeholder="Passwords"/>
+                    <p class="form_field_error"></p>
+                </div>
+                <div>
+                    <!--<p class="registration_text">Phone</p>-->
+                    <input type="tel" name="Phone" id="registration_phone" class="input_underline" value="+62-" placeholder="Phone"/>
+                </div>
+                <div>
+                    <div class="registration_checkbox">
+                        <input type="checkbox" name="registration_checkbox"
+                               value="I agree to service terms of use"/>
+                        I agree to service terms of use
+                    </div>
+                    <div class="registration_checkbox">
+                        <input type="checkbox" name="registration_checkbox" value="I consent to receive electronic
+                    notifications"/>
+                        Hereby I consent to receive electronic notifications (to my specified phone number and e-mail
+                        address), and also expressly and completely agree to the collection, storage, processing and
+                        passing personal data, in accordance with the provisions established in the Privacy Policy,
+                        located at: Privacy Policy, which I have read and accepted.
+                    </div>
+                </div>
+                <div>
+                    <input id="registration_sign_up" class="common_button my_orange full_width"
+                           type="button" value="SUBMIT"/>
+                </div>
+            </div>
+            <div id="authorization_content" class="my_content form_registration">
+                <h1 class="registration_header">LOGIN FORM</h1>
+                <p class="registration_header">Use Google sign in to automate all steps</p>
+                <p class="registration_header">Don't have account? <span id="authorization_sign_up">Sign up</span></p>
+                <div>
+                    <input type="text" name="exit_e_mail" id="exit_e_mail" onkeyup="clear_input_error(this)"
+                           class="form_field_email validation_input input_underline" placeholder="E-mail"/>
+                    <p class="form_field_error"></p>
+                </div>
+                <div>
+                    <input type="password" name="exit_passwords" id="exit_passwords" onkeyup="clear_input_error(this)"
+                           class="form_field_password input_underline validation_input"
+                           placeholder="Password"/>
+                    <p class="form_field_error"></p>
+                </div>
+                <div>
+                    <div class="registration_checkbox">
+                        <input type="checkbox" name="remember_me" id="remember_me"
+                               value="I agree to service terms of use"/>
+                        I agree to service terms of use
+                    </div>
+                    <div>
+                        <input id="login_submit" class="common_button my_orange full_width"
+                               type="button" value="SUBMIT"/>
+                    </div>
+                </div>
+                <div id="user_info_content" class="my_content" style="display: block;">
+                    <h1>Информация о пользователе</h1>
+                    <div>
+                        <p class="registration_text">Id: <span id="user_id_info"></span></p>
+                    </div>
+                    <div>
+                        <p class="registration_text">Name: <span id="user_name_info"></span></p>
+                    </div>
+                    <div>
+                        <p class="registration_text">E-mail: <span id="user_email_info"></span></p>
+                    </div>
+                </div>
+            </div>
+            <div id="main_content" class="my_content">
+                <h1>Главная</h1>
+            </div>
+            <div id="mail_content" class="my_content">
+                <h1 id="name_heading_mail">Почта</h1>
+                <div>
+                    <div class="flex-container-menu">
+                        <div>
+                            <input type="checkbox" name="action_email" value="highlight_all_mail" class="highlight_all_mail action_email_checkbox"/>
+                            <span class="highlight_all_mail_flag_checkbox">
+                                <span class="highlight_all_mail_flag_checkbox_icon"></span>
+                            </span>
+                        </div>
+                        <a id="write_mail" href="#" title="write_mail" onclick="return false" class="button_mail">Написать</a>
+                        <a id="open_mail" href="#" title="open_mail" onclick="return false" class="button_mail">Открыть</a>
+                        <a id="forward_mail" href="#" title="forward_mail" onclick="return false" class="button_mail">Переслать</a>
+                        <a id="delete_mail" href="#" title="delete_mail" onclick="return false" class="button_mail">Удалить</a>
+                        <a id="read_mail" href="#" title="read_mail" onclick="return false" class="button_mail">Прочитано</a>
+                    </div>
+                    <div class="flex-container-menu">
+                        <ul class="menu_mail">
+                            <li id="mail_inbox" class="select_email_list">Входящие</li>
+                            <li id="mail_outbox" class="select_email_list">Отправленные</li>
+                            <li id="mail_deleted_inbox" class="select_email_list">Удаленные</li>
+                        </ul>
+                        <table id="email_list">
+                        </table>
+                    </div>
+                    <div class="flex-container-menu">
+                        <a href="#" title="additional_mail" onclick="return false" class="button_mail additional_mail">Еще</a>
+                    </div>
+                </div>
+            </div>
+            <div id="opened_email" class="my_content">
+                <h1></h1>
+                <div>
+                    <a id="ask_mail" href="#" title="ask_mail" onclick="return false" class="button_mail">Ответить</a>
+                </div>
+            </div>
+            <div id="my_contact" class="my_content">
+                <h1>Мои контакты</h1>
+                <ul class="my_list_contact">
+                </ul>
+            </div>
+            <div id="write_new_mail" class="my_content">
+                <div class="table">
+                    <h1>Новое письмо</h1>
+                    <div>
+                        <input type="text" name="for_write_mail" id="for_write_mail" class="form_field_email validation_input input_underline"
+                               placeholder="Adress mail"/>
+                        <p id="write_error_email" class="form_field_error validation_error"></p>
+                        <input type="text" name="topic_new_mail" id="topic_new_mail" class="form_field_topic validation_input input_underline"
+                               placeholder="Topic"/>
+                        <p id="write_error_subject" class="form_field_error validation_error"></p>
+                        <textarea name="text_new_mail" id="text_new_mail" class="form_field_topic validation_input input_underline"
+                                  placeholder="Text"></textarea>
+                    </div>
+                    <div><input id="send_mail" class="common_button my_orange"
+                                type="button" value="Отправить"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
