@@ -132,7 +132,7 @@ function append(email) {
         "<td class=\"photo_contact\"><span class=\"contact_email_circle\">"+ email.sender[0] +"</span></td>"+
         "<td class=\"name_contact open_email\">"+ email.sender + (email.read ? "" : "</b>") + "</td>"+
         "<td class=\"give_email\ open_email\"><div class=\"give_email\"><span class=\"subject_email\">"+ (email.read ? "" : "<b>") +
-        email.subject +(email.read ? "" : "</b>") + "</span><span class=\"text_email\">"+ email.text +"</span></div></td>"+
+        email.subject +(email.read ? "" : "</b>") + "</span><span class=\"text_email\">"+ email.message +"</span></div></td>"+
         "<td class=\"time_email\">"+ date_email +"</td>"+
         "</tr>");
 }
@@ -147,14 +147,14 @@ function open_mail(email_id) {
     var auth_token = localStorage.getItem("auth_token");
     $.ajax ({
         type: "GET",
-        url: "https://dev1.agafonov.me/api/v1/mail/" + email_id,
+        url: "http://mail-backend.agafonov.me/api/v1/mail/" + email_id,
         beforeSend: function(request) {
             request.setRequestHeader("Authorization", "Bearer " + auth_token);
         },
         success: function (email) {
             console.log(email);
             $("#opened_email").append("<p class='topic_email'>" + email.response.subject + "</p>" + "<p class='body_email'>" +
-                email.response.text + "</p>" +"<input type=\"hidden\" name=\"open_id\" id=\"open_id\" class=\"open_mail_send\" value=\""+ email.response.id +"\">" +
+                email.response.message + "</p>" +"<input type=\"hidden\" name=\"open_id\" id=\"open_id\" class=\"open_mail_send\" value=\""+ email.response.id +"\">" +
                 "<input type=\"hidden\" name=\"open_email\" id=\"open_email\" class=\"open_mail_send\" value=\""+ email.response.sender +"\">");
         }
     });
@@ -347,7 +347,7 @@ $("#send_mail").click(function () {
     var data = {
         email: $("#for_write_mail").val(),
         subject: $("#topic_new_mail").val(),
-        text: $("#text_new_mail").val()
+        message: $("#text_new_mail").val()
     };
     $.ajax({
         type: "POST",
@@ -359,6 +359,9 @@ $("#send_mail").click(function () {
         success: function (mail) {
             console.log(mail);
             $("#client_mail").click();
+            $("#for_write_mail").val('');
+            $("#topic_new_mail").val('');
+            $("#text_new_mail").val('');
         },
         error: function (error_data,error) {
             console.log(error_data);
